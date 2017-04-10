@@ -15,11 +15,11 @@
         "guzzlehttp/guzzle": "^6.2",
         "infyomlabs/adminlte-templates": "5.3.x-dev",
         "infyomlabs/laravel-generator": "5.3.x-dev",
-        "laracasts/flash": "^2.0",
+        "laracasts/flash": "^2.0"
     },
     "autoload": {
     	"psr-4": {
-            "ZCJY\\Pinche\\": "src/",
+            "ZCJY\\Pinche\\": "src/"
         },
         "files" : ["helpers.php"]
 }
