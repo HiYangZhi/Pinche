@@ -1,0 +1,57 @@
+/* css 重置 */
+*{margin:0; padding:0; list-style:none; }
+body{ background:#f0eff4; font:normal 12px/22px 微软雅黑;  }
+img{ border:0;  }
+a:link{ text-decoration:none; color:#333;}
+a:visited{ text-decoration:none; color:#333;}
+a:hover{ text-decoration:none; color:#333;}
+a:active{ text-decoration:none; color:#333;}
+
+.maintab{height: 50px; text-align: center;}
+.maintab a{display: block; line-height: 50px; font-size: 18px;}
+.active{background-color: #fff;}
+
+.item{font-size: 16px; background-color: #fff; padding: 10px; margin-bottom: 10px;}
+.item .info{font-size: 16px; background-position: 0px center; background-repeat: no-repeat; padding-left: 35px; height: 40px; line-height: 40px; white-space:nowrap; background-size: 25px;}
+.item .info-withouticon{padding-left: 15px; }
+.item .time{ background-image: url(../images/pinche/time.png); padding-right: 0;}
+.item .price{ background-image: url(../images/pinche/money.png); }
+.item .dep{ background-image: url(../images/pinche/departure.png); }
+.item .des{ background-image: url(../images/pinche/Arrow.png); background-size: 25px auto;}
+.item .arrow{ background-image: url(../images/pinche/Arrow.png); background-position: center; background-repeat: no-repeat; background-size: 100%;}
+.item .show{padding: 0; line-height: 80px;}
+
+.eee-border-bottom{ border-bottom: 1px solid #eee }
+
+.index-type{ height: 50px; line-height: 50px; font-size: 16px; background-color: #fff; margin-bottom: 10px; }
+.index-type a{display: block; padding-left: 45px;}
+.index-type .col-4{padding: 0;}
+.index-type .active{color: #1bbc9b;}
+.index-type .owner a{ background-image: url(../images/pinche/vehicle-h.png); background-position: 10px center; background-repeat: no-repeat; background-size: 22px auto;}
+.index-type .passenger a{ background-image: url(../images/pinche/people-h.png); background-position: 10px center; background-repeat: no-repeat; background-size: 22px auto;}
+.index-type .owner a.active{ background-image: url(../images/pinche/vehicle.png); }
+.index-type .passenger a.active{ background-image: url(../images/pinche/people.png); }
+
+.search .row{margin: 10px -10px; height: 50px; border-radius: 25px; background-color: #fff;}
+.search .col-1, .search .col-2, .search .col-3{padding: 0;}
+
+.search input.form-control{border-style: none; background: transparent; padding: 0; text-align: center;}
+.search .form-group{margin-bottom: 0;}
+.search .btn-change{background-image: url(../images/pinche/switch.png); background-size: 20px auto; background-position: center; height: 36px; background-color: transparent; background-repeat: no-repeat;} 
+.search .btn-submit{background-image: url(../images/pinche/search.png); background-size: 100%; height: 36px; background-color: transparent; background-repeat: no-repeat; float: right; margin-right: 10px;} 
+
+.form-lable{ line-height: 38px; font-size: 18px; text-align: center; }
+.price-btn .btn{padding: .5rem 0.7rem}
+
+.btn-group .btn-primary{background-color: #fff; color: #000;}
+.btn-group .btn-primary.active{background-color: #025aa5; color: #fff;}
+
+.form{padding-top: 15px; padding-bottom: 40px; background-color: #fff;}
+.form .switch{width: 38px; height: 38px; margin: 0 auto; background-image: url(../images/pinche/switch-d.png); background-size: 100%;}
+.form_datetime input{background-color: #fff;}
+
+.btn-danger{color: #fff;}
+
+#infscr-loading{text-align: center;}
+.paginate-wraper{display: none;}
+.bold{font-weight: bold;}
