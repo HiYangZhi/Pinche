@@ -3,9 +3,9 @@
 namespace ZCJY\Pinche\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Info;
-use App\Models\Passenger;
-use App\Repositories\InfoRepository;
+use ZCJY\Pinche\Models\Info;
+use ZCJY\Pinche\Models\Passenger;
+use ZCJY\Pinche\Repositories\InfoRepository;
 use Flash;
 
 class HomeController extends Controller

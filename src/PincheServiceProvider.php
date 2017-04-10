@@ -17,13 +17,19 @@ class PincheServiceProvider extends ServiceProvider
     {
         //加载视图
         $this->loadViewsFrom(realpath(__DIR__.'/views'), 'pinche');
+
         //$this->setupRoutes($this->app->router);
+        
+        //加载中间件
+        $this->app->router->middleware('weixincheck', 'ZCJY\Pinche\Http\Middleware\WeixinCheckMiddleware');
+
         //加载路由
         require __DIR__.'/Http/routes.php';
-        //加载中间件
-        $this->app->router->middleware('weixincheck', 'ZCJY\Pinche\Middleware\WeixinCheckMiddleware');
-        //加载迁移文件
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
+        
+        //迁移文件
+        $this->publishes([
+            __DIR__.'/migrations/' => database_path('migrations')
+        ], 'migrations');
         // this for conig
         $this->publishes([
             __DIR__.'/config/pinche.php' => config_path('pinche.php'),

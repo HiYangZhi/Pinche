@@ -2,10 +2,10 @@
 
 namespace ZCJY\Pinche\Http\Controllers;
 
-use App\Http\Requests\CreateLinkRequest;
-use App\Http\Requests\UpdateLinkRequest;
-use App\Repositories\LinkRepository;
-use App\Http\Controllers\AppBaseController;
+use ZCJY\Pinche\Http\Requests\CreateLinkRequest;
+use ZCJY\Pinche\Http\Requests\UpdateLinkRequest;
+use ZCJY\Pinche\Repositories\LinkRepository;
+use ZCJY\Pinche\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;

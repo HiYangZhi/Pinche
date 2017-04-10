@@ -26,7 +26,6 @@ Route::group([ 'prefix' => 'pinche' , 'namespace' => 'ZCJY\Pinche\Http\Controlle
 
 	Route::get('/passenger', 'FrontController@getPassenger'); //获取用户微信信息
 
-
 	//Auth::routes();
 
 	Route::get('/home', 'HomeController@index');

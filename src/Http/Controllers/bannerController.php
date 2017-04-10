@@ -2,10 +2,10 @@
 
 namespace ZCJY\Pinche\Http\Controllers;
 
-use App\Http\Requests\CreatebannerRequest;
-use App\Http\Requests\UpdatebannerRequest;
-use App\Repositories\bannerRepository;
-use App\Http\Controllers\AppBaseController;
+use ZCJY\Pinche\Http\Requests\CreatebannerRequest;
+use ZCJY\Pinche\Http\Requests\UpdatebannerRequest;
+use ZCJY\Pinche\Repositories\bannerRepository;
+use ZCJY\Pinche\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;

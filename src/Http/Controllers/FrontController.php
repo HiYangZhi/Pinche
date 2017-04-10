@@ -4,10 +4,10 @@ namespace ZCJY\Pinche\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use App\Models\Passenger;
-use App\Models\banner;
-use App\Models\Info;
-use App\Repositories\InfoRepository;
+use ZCJY\Pinche\Models\Passenger;
+use ZCJY\Pinche\Models\banner;
+use ZCJY\Pinche\Models\Info;
+use ZCJY\Pinche\Repositories\InfoRepository;
 use Flash;
 
 class FrontController extends Controller
