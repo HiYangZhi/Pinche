@@ -21,6 +21,6 @@
     	"psr-4": {
             "ZCJY\\Pinche\\": "src/"
         },
-        "files" : ["helpers.php"]
+        "files" : ["src/helpers.php"]
     }
 }
