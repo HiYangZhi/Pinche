@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pinche::layouts.app')
 
 @section('content')
     <div class="row">

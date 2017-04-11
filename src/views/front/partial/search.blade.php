@@ -1,6 +1,6 @@
 <div class="search">
     <div class="row">
-        <form class="form-inline" action="/weixin?type={{$type}}">
+        <form class="form-inline" action="/pinche/weixin?type={{$type}}">
             <input type="hidden" name="type" value="{{$type}}">
             <div class="form-group col-3">
                 <label class="sr-only" for="dep">Name</label>

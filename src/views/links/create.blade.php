@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pinche::layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'links.store']) !!}
+                    {!! Form::open(['route' => 'pinche.links.store']) !!}
 
-                        @include('links.fields')
+                        @include('pinche::links.fields')
 
                     {!! Form::close() !!}
                 </div>

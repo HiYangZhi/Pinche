@@ -34,7 +34,7 @@ class bannerController extends AppBaseController
         $this->bannerRepository->pushCriteria(new RequestCriteria($request));
         $banners = $this->bannerRepository->all();
 
-        return view('banners.index')
+        return view('pinche::banners.index')
             ->with('banners', $banners);
     }
 
@@ -45,7 +45,7 @@ class bannerController extends AppBaseController
      */
     public function create()
     {
-        return view('banners.create');
+        return view('pinche::banners.create');
     }
 
     /**
@@ -71,7 +71,7 @@ class bannerController extends AppBaseController
 
         Flash::success('Banner saved successfully.');
 
-        return redirect(route('banners.index'));
+        return redirect(route('pinche.banners.index'));
     }
 
     /**
@@ -88,10 +88,10 @@ class bannerController extends AppBaseController
         if (empty($banner)) {
             Flash::error('Banner not found');
 
-            return redirect(route('banners.index'));
+            return redirect(route('pinche.banners.index'));
         }
 
-        return view('banners.show')->with('banner', $banner);
+        return view('pinche::banners.show')->with('banner', $banner);
     }
 
     /**
@@ -108,10 +108,10 @@ class bannerController extends AppBaseController
         if (empty($banner)) {
             Flash::error('Banner not found');
 
-            return redirect(route('banners.index'));
+            return redirect(route('pinche.banners.index'));
         }
 
-        return view('banners.edit')->with('banner', $banner);
+        return view('pinche::banners.edit')->with('banner', $banner);
     }
 
     /**
@@ -129,7 +129,7 @@ class bannerController extends AppBaseController
         if (empty($banner)) {
             Flash::error('Banner not found');
 
-            return redirect(route('banners.index'));
+            return redirect(route('pinche.banners.index'));
         }
 
         $input = $request->all();
@@ -150,7 +150,7 @@ class bannerController extends AppBaseController
 
         Flash::success('Banner updated successfully.');
 
-        return redirect(route('banners.index'));
+        return redirect(route('pinche.banners.index'));
     }
 
     /**
@@ -174,7 +174,7 @@ class bannerController extends AppBaseController
 
         Flash::success('Banner deleted successfully.');
 
-        return redirect(route('banners.index'));
+        return redirect(route('pinche.banners.index'));
     }
 
 

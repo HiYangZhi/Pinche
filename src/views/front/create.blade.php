@@ -1,18 +1,18 @@
 
-@extends('front.layout')
+@extends('pinche::front.layout')
 
 @section('css')
-    @include('front.partial.bannercss')
+    @include('pinche::front.partial.bannercss')
 @endsection
 
 @section('content')
 
 
 <div class="container">
-    @include('front.partial.banner')
+    @include('pinche::front.partial.banner')
     
     <!-- 功能选择 -->
-    @include('front.partial.nav', ['index' => 2])
+    @include('pinche::front.partial.nav', ['index' => 2])
     
     <div class="row form">
         @if (count($errors) > 0)
@@ -25,7 +25,7 @@
                 </ul>
             </div>
         @endif
-        <form class="col-12" action="/create" method="POST">
+        <form class="col-12" action="/pinche/create" method="POST">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="btn-group form-group col-12" data-toggle="buttons">
                 <label class="btn btn-primary col-6 @if (old('type') != 1) focus active @endif" id="type-selection-1">

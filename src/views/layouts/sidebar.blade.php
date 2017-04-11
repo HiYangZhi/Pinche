@@ -21,7 +21,7 @@
         </div>
 
         <ul class="sidebar-menu">
-            @include('layouts.menu')
+            @include('pinche::layouts.menu')
         </ul>
         <!-- /.sidebar-menu -->
     </section>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pinche::layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -10,8 +10,8 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('banners.show_fields')
-                    <a href="{!! route('banners.index') !!}" class="btn btn-default">Back</a>
+                    @include('pinche::banners.show_fields')
+                    <a href="{!! route('pinche.banners.index') !!}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

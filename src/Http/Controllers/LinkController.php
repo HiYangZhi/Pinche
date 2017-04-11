@@ -32,7 +32,7 @@ class LinkController extends AppBaseController
         $this->linkRepository->pushCriteria(new RequestCriteria($request));
         $links = $this->linkRepository->all();
 
-        return view('links.index')
+        return view('pinche::links.index')
             ->with('links', $links);
     }
 
@@ -43,7 +43,7 @@ class LinkController extends AppBaseController
      */
     public function create()
     {
-        return view('links.create');
+        return view('pinche::links.create');
     }
 
     /**
@@ -61,7 +61,7 @@ class LinkController extends AppBaseController
 
         Flash::success('Link saved successfully.');
 
-        return redirect(route('links.index'));
+        return redirect(route('pinche.links.index'));
     }
 
     /**
@@ -78,10 +78,10 @@ class LinkController extends AppBaseController
         if (empty($link)) {
             Flash::error('Link not found');
 
-            return redirect(route('links.index'));
+            return redirect(route('pinche.links.index'));
         }
 
-        return view('links.show')->with('link', $link);
+        return view('pinche::links.show')->with('link', $link);
     }
 
     /**
@@ -98,10 +98,10 @@ class LinkController extends AppBaseController
         if (empty($link)) {
             Flash::error('Link not found');
 
-            return redirect(route('links.index'));
+            return redirect(route('pinche.links.index'));
         }
 
-        return view('links.edit')->with('link', $link);
+        return view('pinche::links.edit')->with('link', $link);
     }
 
     /**
@@ -119,14 +119,14 @@ class LinkController extends AppBaseController
         if (empty($link)) {
             Flash::error('Link not found');
 
-            return redirect(route('links.index'));
+            return redirect(route('pinche.links.index'));
         }
 
         $link = $this->linkRepository->update($request->all(), $id);
 
         Flash::success('Link updated successfully.');
 
-        return redirect(route('links.index'));
+        return redirect(route('pinche::links.index'));
     }
 
     /**
@@ -143,13 +143,13 @@ class LinkController extends AppBaseController
         if (empty($link)) {
             Flash::error('Link not found');
 
-            return redirect(route('links.index'));
+            return redirect(route('pinche.links.index'));
         }
 
         $this->linkRepository->delete($id);
 
         Flash::success('Link deleted successfully.');
 
-        return redirect(route('links.index'));
+        return redirect(route('pinche.links.index'));
     }
 }

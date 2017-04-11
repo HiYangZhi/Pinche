@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pinche::layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($banner, ['route' => ['banners.update', $banner->id], 'method' => 'patch', 'files' => true]) !!}
+                   {!! Form::model($banner, ['route' => ['pinche.banners.update', $banner->id], 'method' => 'patch', 'files' => true]) !!}
 
-                        @include('banners.fields', ['new' => false])
+                        @include('pinche::banners.fields', ['new' => false])
 
                    {!! Form::close() !!}
                </div>

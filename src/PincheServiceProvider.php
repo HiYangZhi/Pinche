@@ -3,6 +3,10 @@
 namespace ZCJY\Pinche;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use ZCJY\Pinche\Models\banner;
+use ZCJY\Pinche\Models\Link;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Routing\Router;
 
 class PincheServiceProvider extends ServiceProvider
@@ -15,6 +19,21 @@ class PincheServiceProvider extends ServiceProvider
     protected $defer = false;
     public function boot()
     {
+
+        //Schema::defaultStringLength(191);
+
+        view()->composer('*',function($view){
+            $banners = Cache::remember('banners', 1, function(){
+                return banner::all();
+            });
+            $links = Cache::remember('links', 1, function(){
+                return Link::all();
+            });
+
+            $view->with('banners',$banners)->with('links',$links);
+        });
+
+
         //加载视图
         $this->loadViewsFrom(realpath(__DIR__.'/views'), 'pinche');
 

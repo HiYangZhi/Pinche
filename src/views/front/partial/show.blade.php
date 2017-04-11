@@ -5,7 +5,7 @@
         @else
             人找车
         @endif </div>
-        <div class="col-8 info info-withouticon"><a  @if ($index == 1) href="/weixin?type={{$info->type}}" @else href="/infoes"  @endif style="float: right;"> 返回</a></div>
+        <div class="col-8 info info-withouticon"><a  @if ($index == 1) href="/pinche/weixin?type={{$info->type}}" @else href="/infoes"  @endif style="float: right;"> 返回</a></div>
     </div>
 </div>
 <div class="col-12">

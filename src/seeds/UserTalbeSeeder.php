@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use ZCJY\Pinche\User;
+use App\Models\User;
 
 class UserTalbeSeeder extends Seeder
 {
@@ -12,10 +12,8 @@ class UserTalbeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-
         User::create([
-            'name' => 'admin',
+            'name' => 'pincheadmin',
             'email' => 'yyjz@foxmail.com',
             'password'=>Hash::make('fengwei2345*'),
         ]);

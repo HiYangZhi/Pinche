@@ -1,8 +1,8 @@
 
-@extends('front.layout')
+@extends('pinche::front.layout')
 
 @section('css')
-    @include('front.partial.bannercss')
+    @include('pinche::front.partial.bannercss')
 
     <style type="text/css">
         #formtable{position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 99; background-color: rgba(0,0,0,0.3); display: none;}
@@ -25,7 +25,7 @@
 <div class="container">
     <div id="formtable">
         <div class="inner-content container">
-            <form action="/cancel/{{$info->id}}" method="GET">
+            <form action="/pinche/cancel/{{$info->id}}" method="GET">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="row form-group" style="margin-top: 30px;">
                     <div class="col-12 lable">确认取消行程吗？该操作不可恢复！</div>
@@ -39,15 +39,15 @@
         </div>
     </div>
 
-    @include('front.partial.banner')
+    @include('pinche::front.partial.banner')
     
     <!-- 功能选择 -->
-    @include('front.partial.nav', ['index' => 3])
+    @include('pinche::front.partial.nav', ['index' => 3])
 
     <!-- 拼车信息列表 -->
     <div class="item row">
-        @include('front.partial.error')
-        @include('front.partial.show', ['index' => 3])
+        @include('pinche::front.partial.error')
+        @include('pinche::front.partial.show', ['index' => 3])
         
     </div>
 </div>

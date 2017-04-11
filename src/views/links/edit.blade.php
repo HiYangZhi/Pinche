@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('pinche::layouts.app')
 
 @section('content')
     <section class="content-header">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($link, ['route' => ['links.update', $link->id], 'method' => 'patch']) !!}
+                   {!! Form::model($link, ['route' => ['pinche.links.update', $link->id], 'method' => 'patch']) !!}
 
-                        @include('links.fields')
+                        @include('pinche::links.fields')
 
                    {!! Form::close() !!}
                </div>

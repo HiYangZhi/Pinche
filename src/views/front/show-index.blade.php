@@ -1,8 +1,8 @@
 
-@extends('front.layout')
+@extends('pinche::front.layout')
 
 @section('css')
-    @include('front.partial.bannercss')
+    @include('pinche::front.partial.bannercss')
 
     <style type="text/css">
         #formtable{position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 99; background-color: rgba(0,0,0,0.3); display: none;}
@@ -24,7 +24,7 @@
 
 <div id="formtable">
     <div class="inner-content container">
-        <form action="/participate/{{$info->id}}" method="GET">
+        <form action="/pinche/participate/{{$info->id}}" method="GET">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row form-group" style="margin-top: 30px;">
                 <div class="col-5 lable">联系电话</div>

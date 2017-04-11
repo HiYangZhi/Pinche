@@ -33,13 +33,13 @@ class HomeController extends Controller
     public function index()
     {
         $infoes = Info::paginate(20);
-        return view('home', compact('infoes'));
+        return view('pinche::home', compact('infoes'));
     }
 
     public function users()
     {
         $users = Passenger::paginate(20);
-        return view('user', compact('users'));
+        return view('pinche::user', compact('users'));
     }
 
     public function deleteInfo($id){

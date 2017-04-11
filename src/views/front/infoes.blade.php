@@ -1,22 +1,22 @@
 
-@extends('front.layout')
+@extends('pinche::front.layout')
 
 @section('css')
-    @include('front.partial.bannercss')
+    @include('pinche::front.partial.bannercss')
 @endsection
 
 @section('content')
 
 
 <div class="container">
-    @include('front.partial.banner')
-     @include('front.partial.error')
+    @include('pinche::front.partial.banner')
+     @include('pinche::front.partial.error')
     <!-- 功能选择 -->
-    @include('front.partial.nav', ['index' => 3])
+    @include('pinche::front.partial.nav', ['index' => 3])
     
     <!-- 拼车信息列表 -->
     @foreach ($infoes as $element)
-        <a class="row item" href="/show/{{$element->id}}">
+        <a class="row item" href="/pinche/show/{{$element->id}}">
             <div class="col-10">
                 <div class="row">
                     <div class="col-6 info time"> {{{ $element->time->format('m-d') }}} <small>{{{ $element->time->format('H:i') }}}</small> </div>

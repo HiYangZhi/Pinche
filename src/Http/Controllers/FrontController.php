@@ -17,7 +17,7 @@ class FrontController extends Controller
 	public function __construct(InfoRepository $infoRepo)
     {
         $this->infoRepository = $infoRepo;
-        $this->middleware('weixincheck')->except('getPassenger');
+        //$this->middleware('weixincheck')->except('getPassenger');
     }
 
     private function current_user(){
@@ -54,13 +54,14 @@ class FrontController extends Controller
         $des = array_key_exists ( 'destination' , $inputs ) ? $inputs['destination'] : null;
         $time = array_key_exists ( 'time' , $inputs ) ? $inputs['time'] : null;
         $infos = $this->infoRepository->listPage($type, $dep, $des, $time);
+
         //车找人
-    	return view('front.index', compact('infos', 'type', 'dep', 'des', 'time'));
+    	return view('pinche::front.index', compact('infos', 'type', 'dep', 'des', 'time'));
     }
 
     public function create(Request $request)
     {
-    	return view('front.create');
+    	return view('pinche::front.create');
     }
 
     public function store(Request $request){
@@ -70,7 +71,7 @@ class FrontController extends Controller
         $infos = $this->infoRepository->create($inputs);
         $request->session()->flash('flash-type', 'success');
         $request->session()->flash('flash-message', '信息提交成功');
-        return redirect('/infoes');
+        return redirect('/pinche/infoes');
     }
 
     public function infoes(Request $request){
@@ -89,7 +90,7 @@ class FrontController extends Controller
         if ($request->session()->has('flash-type')) {
 		    call_user_func ( 'Flash::'.session('flash-type'),  session('flash-message'));
 		}
-        return view('front.infoes', compact('infoes'));
+        return view('pinche::front.infoes', compact('infoes'));
     }
 
     public function show($id)
@@ -98,7 +99,7 @@ class FrontController extends Controller
     	$info = $this->infoRepository->findWithoutFail($id);
         if (empty($info)) {
             Flash::error('信息不存在');
-            return redirect('/infos');
+            return redirect('/pinche/infos');
         }
         //是否本人发起的信息
         $owner = $info->passenger_id == $user->id;
@@ -111,7 +112,7 @@ class FrontController extends Controller
             $participants = $info->passengers()->where('passenger_id', $user->id)->get();
         }
         
-        return view('front.show', compact('info', 'participants', 'owner'));
+        return view('pinche::front.show', compact('info', 'participants', 'owner'));
     }
 
     public function detail($id)
@@ -119,9 +120,9 @@ class FrontController extends Controller
     	$info = $this->infoRepository->findWithoutFail($id);
         if (empty($info)) {
             Flash::error('信息不存在');
-            return redirect('/infos');
+            return redirect('/pinche/infos');
         }
-         return view('front.show-index', compact('info'));
+         return view('pinche::front.show-index', compact('info'));
     }
 
     public function edit($id)
@@ -131,7 +132,7 @@ class FrontController extends Controller
             Flash::error('信息不存在');
             return redirect()->back();
         }
-        return view('front.edit', compact('info'));
+        return view('pinche::front.edit', compact('info'));
     }
 
     public function update($id, Request $request)
@@ -156,7 +157,7 @@ class FrontController extends Controller
             $participants = $info->passengers()->where('passenger_id', $user->id)->get();
         }
         Flash::success('信息修改成功');
-        return view('front.show', compact('info', 'participants', 'owner'));
+        return view('pinche::front.show', compact('info', 'participants', 'owner'));
 
     }
     /**
@@ -213,7 +214,7 @@ class FrontController extends Controller
         $info->seat_taken += $ask_seat;
         $info->save();
         flash('信息提交成功', 'success');
-        return redirect('/show/'.$info->id);
+        return redirect('/pinche/show/'.$info->id);
     }
 
     public function cancel($id, Request $request)
@@ -238,7 +239,7 @@ class FrontController extends Controller
         	$info->passengers()->detach([$user->id]);
         }
         Flash::success($info->time.'从'.$info->departure.'到'.$info->destination.'的行程已取消');
-        return redirect('/infoes');
+        return redirect('/pinche/infoes');
     }
 
     /**

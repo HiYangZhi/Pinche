@@ -10,10 +10,10 @@
             <td>{!! $link->intro !!}</td>
             <td>{!! $link->url !!}</td>
             <td>
-                {!! Form::open(['route' => ['links.destroy', $link->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['pinche.links.destroy', $link->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('links.show', [$link->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-                    <a href="{!! route('links.edit', [$link->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="{!! route('pinche.links.show', [$link->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+                    <a href="{!! route('pinche.links.edit', [$link->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
                     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
