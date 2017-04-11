@@ -1,6 +1,7 @@
 {
     "name": "zcjy/pinche",
     "description": "智琛佳源科技有限公司开发的一款应用于微信的拼车应用",
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "杨余佳子",
