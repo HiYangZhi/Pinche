@@ -27,8 +27,8 @@
         <form action="/pinche/participate/{{$info->id}}" method="GET">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row form-group" style="margin-top: 30px;">
-                <div class="col-5 lable">联系电话</div>
-                <div class="col-7"><input type="text" name="contact" placeholder="联系电话" class="form-control"></div>
+                <div class="col-5 lable">联系方式</div>
+                <div class="col-7"><input type="text" name="contact" placeholder="联系方式" class="form-control"></div>
             </div>
             <div class="row form-group">
                 <div class="col-5 lable">需求座位数</div>

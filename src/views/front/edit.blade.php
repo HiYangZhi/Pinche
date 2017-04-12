@@ -55,8 +55,8 @@
             </div>
 
             <div class="row form-group">
-                <div class="col-4 form-lable">联系电话</div>
-                <div class="col-8"><input type="text" class="form-control" name="contact" placeholder="联系电话" value="{{$info->contact}}"></div>
+                <div class="col-4 form-lable">联系方式</div>
+                <div class="col-8"><input type="text" class="form-control" name="contact" placeholder="电话或微信" value="{{$info->contact}}" maxlength="30"></div>
             </div>
 
             <div class="row form-group">

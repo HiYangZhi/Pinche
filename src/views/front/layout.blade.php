@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
-    <title>后台管理</title>
+    <title>核电便民拼车</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="overtrue,bootstrap, bootstrap theme" />
     <meta name="description" content="a bootstrap theme made by overtrue." />
