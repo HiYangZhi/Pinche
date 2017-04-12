@@ -18,7 +18,7 @@ class WeixinCheckMiddleware
     {
         //检查用户session在不在
         if ( !session()->has('user') ) {
-            $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".Config::get('weixin.appid', 'default')."&redirect_uri=".urlencode($request->root().'/pinche/passenger')."&response_type=code&scope=snsapi_userinfo&state=".$request->url()."#wechat_redirect";
+            $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".Config::get('pinche.appid', 'default')."&redirect_uri=".urlencode($request->root().'/pinche/passenger')."&response_type=code&scope=snsapi_userinfo&state=".$request->url()."#wechat_redirect";
             return redirect($url);
         }
         

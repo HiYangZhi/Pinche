@@ -69,7 +69,7 @@ class Passenger extends Model
      */
     public function infoes()
     {
-        return $this->hasMany('App\Models\Info');
+        return $this->hasMany('ZCJY\Pinche\Models\Info');
     }
 
     /**
@@ -77,7 +77,7 @@ class Passenger extends Model
      * @return [type] [description]
      */
     public function participations(){
-        return $this->belongsToMany('App\Models\Info', 'info_passenger', 'passenger_id', 'info_id')->withPivot('contact', 'seat');
+        return $this->belongsToMany('ZCJY\Pinche\Models\Info', 'info_passenger', 'passenger_id', 'info_id')->withPivot('contact', 'seat');
     }
     
 }

@@ -53,7 +53,7 @@
     @endforeach
     </div>
     <div class="tc paginate-wraper">
-        {!--{ $infos->links() }--}
+        {{ $infos->render() }}
     </div>
 </div>
 

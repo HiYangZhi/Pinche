@@ -17,12 +17,12 @@ class WeixinController extends Controller
     public function getPassenger(Request $request){
 
     	$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".Config::get('pinche.appid', '')."&secret=".Config::get('pinche.secret', '')."&code=".$request['code']."&grant_type=authorization_code";
-        $rt = json_decode(httpGet($url));
+        $rt = json_decode($this->httpGet($url));
         $access_token = $rt->access_token;
         $open_id = $rt->openid;
 
         $url2 = "https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$open_id."&lang=zh_CN";
-        $user_info = json_decode(httpGet($url2));
+        $user_info = json_decode($this->httpGet($url2));
 
         //检查openid是否注册，没有就注册一个
         $result = Passenger::where('openid', $user_info->openid)->get(); 
@@ -55,5 +55,23 @@ class WeixinController extends Controller
             session(['user' => $passenger]);
         }
         return redirect($request['state']);
+    }
+
+
+    private function httpGet($url,$headers = null) {
+        $curl = curl_init();
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+
+        if(!is_null($headers))
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        $res = curl_exec($curl);
+        curl_close($curl);
+
+        return $res;
     }
 }

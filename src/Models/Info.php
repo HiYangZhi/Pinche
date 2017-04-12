@@ -72,7 +72,7 @@ class Info extends Model
      * @return [type] [description]
      */
     public function publisher(){
-        return $this->belongsTo('App\Models\Passenger');
+        return $this->belongsTo('ZCJY\Pinche\Models\Passenger');
     }
     
 
@@ -81,6 +81,6 @@ class Info extends Model
      * @return [type] [description]
      */
     public function passengers(){
-        return $this->belongsToMany('App\Models\Passenger', 'info_passenger', 'info_id', 'passenger_id')->withPivot('contact', 'seat');
+        return $this->belongsToMany('ZCJY\Pinche\Models\Passenger', 'info_passenger', 'info_id', 'passenger_id')->withPivot('contact', 'seat');
     }
 }
