@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use ZCJY\Pinche\Models\Passenger;
 
-class FrontController extends Controller
+class WeixinController extends Controller
 {
 
     /**

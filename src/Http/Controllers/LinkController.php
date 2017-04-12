@@ -126,7 +126,7 @@ class LinkController extends AppBaseController
 
         Flash::success('Link updated successfully.');
 
-        return redirect(route('pinche::links.index'));
+        return redirect(route('pinche.links.index'));
     }
 
     /**

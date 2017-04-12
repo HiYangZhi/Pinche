@@ -44,23 +44,17 @@ class PincheServiceProvider extends ServiceProvider
 
         //加载路由
         require __DIR__.'/Http/routes.php';
-        
-        //迁移文件
+    
         $this->publishes([
-            __DIR__.'/migrations/' => database_path('migrations')
-        ], 'migrations');
-        // this for conig
-        $this->publishes([
+            //migrations
+            __DIR__.'/migrations/' => database_path('migrations'),
+            // this for conig
             __DIR__.'/config/pinche.php' => config_path('pinche.php'),
-        ], 'config');
-        //seeder
-        $this->publishes([
-            __DIR__.'/seeds/UserTalbeSeeder.php' => database_path('seeds/UserTalbeSeeder.php'),
-        ], 'seeder');
-        //assets
-        $this->publishes([
+            //seeder
+            //__DIR__.'/seeds/UserTalbeSeeder.php' => database_path('seeds/UserTalbeSeeder.php'),
+            //assets
             __DIR__.'/assets' => public_path('vendor/pinche'),
-        ], 'public');
+        ], 'pinche');
     }
 
     /**
