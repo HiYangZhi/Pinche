@@ -155,8 +155,32 @@ class FrontController extends Controller
         } else {
             //只返回自己的信息
             $participants = $info->passengers()->where('passenger_id', $user->id)->get();
+            //应该通知所有的报名用户，乘车信息有变动
         }
         Flash::success('信息修改成功');
+
+        //发送微信通知消息
+        $weixinusers = $info->passengers();
+        $weixinusers = $weixinusers->each(function ($user, $key) {
+            //应该通知所有的报名用户，乘车信息有变动
+            $url = $request->root().'/pinche/detail/'.$id;
+            $data = array(
+                "first"  => "拼车信息发生变动",
+                "keyword1"   => "未知",
+                "keyword2"  => $user->nickname,
+                "keyword3" => $info->time,
+                "keyword4" => $info->departure,
+                "keyword5" => $info->destination,
+                "remark" => "",
+            );
+            Event::fire(new App\Events\SendTemplateMessage([
+                'userId' => $user->openid,
+                'templateId' => 'cM8_G8xU0Y8N2C4T0fPdQM9aPgK93Hf4bfqRyqHX5o0',
+                'url' => $url,
+                'data' => $data
+            ]);
+        });
+
         return view('pinche::front.show', compact('info', 'participants', 'owner'));
 
     }
@@ -214,6 +238,31 @@ class FrontController extends Controller
         $info->seat_taken += $ask_seat;
         $info->save();
         flash('信息提交成功', 'success');
+
+        //应该通知所有的报名用户，乘车信息有变动
+        $url = $request->root().'/pinche/detail/'.$id;
+        $data = array(
+            "first"  => "用户拼车信息",
+            "keyword1"   => "未知",
+            "keyword2"  => $user->nickname,
+            "keyword3" => $info->time,
+            "keyword4" => $info->departure,
+            "keyword5" => $info->destination,
+            "remark" => "",
+        );
+        Event::fire(new App\Events\SendTemplateMessage([
+            'userId' => $user->openid,
+            'templateId' => 'cM8_G8xU0Y8N2C4T0fPdQM9aPgK93Hf4bfqRyqHX5o0',
+            'url' => $url,
+            'data' => $data
+        ]);
+        Event::fire(new App\Events\SendTemplateMessage([
+            'userId' => $info->publisher()->openid,
+            'templateId' => 'cM8_G8xU0Y8N2C4T0fPdQM9aPgK93Hf4bfqRyqHX5o0',
+            'url' => $url,
+            'data' => $data
+        ]);
+
         return redirect('/pinche/show/'.$info->id);
     }
 
@@ -227,9 +276,30 @@ class FrontController extends Controller
         }
     	$user = $this->current_user();
         if ($info->passenger_id == $user->id) {
+            //应该通知所有的报名用户，乘车信息有变动
+            $info->passengers()->->each(function ($user, $key) {
+                //$url = $request->root().'/pinche/detail/'.$id;
+                $data = array(
+                    "first"  => "拼车信息发生变动",
+                    "keyword1"   => "未知",
+                    "keyword2"  => $user->nickname,
+                    "keyword3" => $info->time,
+                    "keyword4" => $info->departure,
+                    "keyword5" => $info->destination,
+                    "remark" => "",
+                );
+                Event::fire(new App\Events\SendTemplateMessage([
+                    'userId' => $user->openid,
+                    'templateId' => 'cM8_G8xU0Y8N2C4T0fPdQM9aPgK93Hf4bfqRyqHX5o0',
+                    'url' => '',
+                    'data' => $data
+                ]);
+            });
+
         	//自己是信息的发布者，删除信息
         	$info->passengers()->sync([]);
         	Info::destroy($id);
+
         }else{
             $participants = $info->passengers()->where('passenger_id', $user->id)->where('info_id', $info->id)->get();
             if (!$participants>isEmpty()) {
@@ -237,8 +307,30 @@ class FrontController extends Controller
                 $info->save();
             }
         	$info->passengers()->detach([$user->id]);
+
+            //应该通知所有的报名用户，乘车信息有变动
+            $url = $request->root().'/pinche/detail/'.$id;
+            $data = array(
+                "first"  => "乘客取消拼车",
+                "keyword1"   => "未知",
+                "keyword2"  => $user->nickname,
+                "keyword3" => $info->time,
+                "keyword4" => $info->departure,
+                "keyword5" => $info->destination,
+                "remark" => "",
+            );
+            Event::fire(new App\Events\SendTemplateMessage([
+                'userId' => $info->publisher()->openid,
+                'templateId' => 'cM8_G8xU0Y8N2C4T0fPdQM9aPgK93Hf4bfqRyqHX5o0',
+                'url' => $url,
+                'data' => $data
+            ]);
         }
         Flash::success($info->time.'从'.$info->departure.'到'.$info->destination.'的行程已取消');
+
+        
+
+
         return redirect('/pinche/infoes');
     }
 
