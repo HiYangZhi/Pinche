@@ -28,11 +28,11 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="row form-group" style="margin-top: 30px;">
                 <div class="col-5 lable">联系方式</div>
-                <div class="col-7"><input type="text" name="contact" placeholder="联系方式" class="form-control"></div>
+                <div class="col-7"><input type="text" name="contact" placeholder="微信或电话" maxlength="30" class="form-control"></div>
             </div>
             <div class="row form-group">
                 <div class="col-5 lable">需求座位数</div>
-                <div class="col-7"><input type="text" name="seat" placeholder="需求座位" class="form-control"></div>
+                <div class="col-7"><input type="text" name="seat" placeholder="需求座位" maxlength="1" class="form-control"></div>
             </div>
 
             <div class="row form-group">
@@ -45,15 +45,15 @@
 
 
 <div class="container">
-    @include('front.partial.banner')
+    @include('pinche::front.partial.banner')
     
     <!-- 功能选择 -->
-    @include('front.partial.nav', ['index' => 1])
+    @include('pinche::front.partial.nav', ['index' => 1])
 
     <!-- 拼车信息列表 -->
     <div class="item row">
-        @include('front.partial.error')
-        @include('front.partial.show', ['index' => 1])
+        @include('pinche::front.partial.error')
+        @include('pinche::front.partial.show', ['index' => 1])
     </div>
 </div>
 

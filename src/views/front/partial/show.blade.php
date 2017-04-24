@@ -5,7 +5,7 @@
         @else
             人找车
         @endif </div>
-        <div class="col-8 info info-withouticon"><a  @if ($index == 1) href="/pinche/weixin?type={{$info->type}}" @else href="/infoes"  @endif style="float: right;"> 返回</a></div>
+        <div class="col-8 info info-withouticon"><a  @if ($index == 1) href="/pinche/weixin?type={{$info->type}}" @else href="/pinche/infoes"  @endif style="float: right;"> 返回</a></div>
     </div>
 </div>
 <div class="col-12">
@@ -71,15 +71,15 @@
 
     <div class="col-12">
         <div class="row" style="margin-top: 10px;">
-            <div class="col-4" style="padding: 0">@if($owner) <a class="btn btn-default" href="/edit/{{$info->id}}">修改</a> @endif</div>
+            <div class="col-4" style="padding: 0">@if($owner) <a class="btn btn-default" href="/pinche/edit/{{$info->id}}">修改</a> @endif</div>
             <div class="col-4" style="padding: 0"><a class="btn btn-danger" id='cancel_info' style="color: #fff;">取消行程</a></div>
-            <div class="col-4"><a class="btn btn-primary" style="color: #fff;" onClick="javascript:history.back(-1);">返回</a></div>
+            <div class="col-4"><a class="btn btn-primary" style="color: #fff;" href="/pinche/infoes">返回</a></div>
         </div>
     </div>
 @else
     <div class="col-12">
         <div class="row" style="margin-top: 10px;">
-            <form action="/participate/{{$info->id}}" method="GET" class="col-12">
+            <form action="/pinche/participate/{{$info->id}}" method="GET" class="col-12">
                 <button id="participate" class="btn btn-warning" style="color: #fff; width: 100%; ">@if ($info->type == 0) 立即加入 @else 邀请乘车 @endif</button>
             </form>
         </div>

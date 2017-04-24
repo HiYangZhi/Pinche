@@ -72,7 +72,7 @@ class Info extends Model
      * @return [type] [description]
      */
     public function publisher(){
-        return $this->belongsTo('ZCJY\Pinche\Models\Passenger');
+        return $this->belongsTo('ZCJY\Pinche\Models\Passenger', 'passenger_id');
     }
     
 
