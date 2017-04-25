@@ -1,8 +1,8 @@
 <table class="table table-responsive" id="banners-table">
     <thead>
-        <th width="50%">Pic Source</th>
-        <th>Url</th>
-        <th colspan="3">Action</th>
+        <th width="50%">图片路径</th>
+        <th>跳转链接</th>
+        <th colspan="3">操作</th>
     </thead>
     <tbody>
     @foreach($banners as $banner)
