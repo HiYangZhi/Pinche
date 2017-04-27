@@ -34,7 +34,7 @@
 </div>
 <div class="col-12">
     <div class="row eee-border-bottom">
-        <div class="col-4 info info-withouticon">联系电话</div>
+        <div class="col-4 info info-withouticon">联系方式</div>
         <div class="col-8 info info-withouticon bold">{{$info->contact}}</div>
     </div>
     

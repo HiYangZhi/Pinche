@@ -41,7 +41,7 @@ class InfoRepository extends BaseRepository
             $querybuilder = $querybuilder->where('destination', 'like', '%'.$des.'%');
         }
         if ( !is_null($time) ) {
-            $querybuilder = $querybuilder->whereDate( 'time', $time );
+            $querybuilder = $querybuilder->whereDate( 'time', '=', $time );
         }
         try {
             return $querybuilder->skip($offset)->take($num)->get();
@@ -61,7 +61,7 @@ class InfoRepository extends BaseRepository
             $querybuilder = $querybuilder->where('destination', 'like', '%'.$des.'%');
         }
         if ( !is_null($time) ) {
-            $querybuilder = $querybuilder->whereDate( 'time', $time );
+            $querybuilder = $querybuilder->whereDate( 'time', '=', $time );
         }
         return $querybuilder->orderBy('time', 'desc')->paginate(10);
     }

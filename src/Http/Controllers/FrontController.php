@@ -53,9 +53,10 @@ class FrontController extends Controller
     	$inputs = $request->all();
     	
         $type = array_key_exists ( 'type' , $inputs ) ? ($inputs['type'] == '1' ? 1 : 0 ) : 0;
-        $dep = array_key_exists ( 'departure' , $inputs ) ? $inputs['departure'] : null;
-        $des = array_key_exists ( 'destination' , $inputs ) ? $inputs['destination'] : null;
-        $time = array_key_exists ( 'time' , $inputs ) ? $inputs['time'] : null;
+        $dep = array_key_exists ( 'departure' , $inputs ) && $inputs['departure'] != ''  ? $inputs['departure'] : null;
+        $des = array_key_exists ( 'destination' , $inputs ) && $inputs['destination'] != '' ? $inputs['destination'] : null;
+        $time = array_key_exists ( 'time' , $inputs ) && $inputs['time'] != '' ? $inputs['time'] : null;
+        
         $infos = $this->infoRepository->listPage($type, $dep, $des, $time);
 
         //车找人
